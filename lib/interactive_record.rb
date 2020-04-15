@@ -77,28 +77,28 @@ class InteractiveRecord
       DB[:conn].execute(sql, value_name);
     end
     
-  def self.table_name
-    self.to_s.downcase.pluralize
-  end
+    def self.table_name
+      self.to_s.downcase.pluralize
+    end
 
-  def self.column_names
-    DB[:conn].results_as_hash = true
+    def self.column_names
+      DB[:conn].results_as_hash = true
 
-    table_columns = DB[:conn].execute("PRAGMA table_info(#{table_name})")
-    column_names = []
+      table_columns = DB[:conn].execute("PRAGMA table_info(#{table_name})")
+      column_names = []
 
-    table_columns.each do |col|
+      table_columns.each do |col|
       column_names << col["name"]
+      end
+
+      column_names.compact
     end
 
-    column_names.compact
-  end
-
-  def initialize(objects={})
-    objects.each do |k, v|
+    def initialize(objects={})
+      objects.each do |k, v|
       self.send("#{k}=", v)
+      end
     end
-  end
 
   # ORM Methods
 
