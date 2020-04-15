@@ -76,8 +76,7 @@ class InteractiveRecord
     
       DB[:conn].execute(sql, value_name);
     end
-  
-=======
+    
   def self.table_name
     self.to_s.downcase.pluralize
   end
