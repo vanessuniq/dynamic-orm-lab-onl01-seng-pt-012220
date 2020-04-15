@@ -31,16 +31,16 @@ class InteractiveRecord
     
       # SAVE - INSERT INTO students(name, grade) VALUES (x, y)
     
-      def save
-        sql = <<-SQL
-          INSERT INTO #{table_name_for_insert}(#{col_names_for_insert})
-          VALUES (#{values_for_insert})
-          SQL
+    def save
+      sql = <<-SQL
+        INSERT INTO #{table_name_for_insert}(#{col_names_for_insert})
+        VALUES (#{values_for_insert})
+        SQL
     
-        DB[:conn].execute(sql)
+      DB[:conn].execute(sql)
     
-        @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
-      end
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
+    end
     
       def table_name_for_insert
         self.class.table_name
