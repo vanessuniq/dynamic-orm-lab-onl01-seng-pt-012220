@@ -151,5 +151,5 @@ class InteractiveRecord
     DB[:conn].execute(sql, value_name);
   end
 
->>>>>>> 9fadf0809b12de2df56a22e185989e93e2f58065
+
 end
