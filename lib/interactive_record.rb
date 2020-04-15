@@ -19,8 +19,8 @@ class InteractiveRecord
           column_names << col["name"]
       end
     
-        column_names.compact
-      end
+      column_names.compact
+    end
     
       def initialize(objects={})
         objects.each do |k, v|
