@@ -100,9 +100,7 @@ class InteractiveRecord
       end
     end
 
-  # ORM Methods
-
-  # SAVE - INSERT INTO students(name, grade) VALUES (x, y)
+ 
 
   def save
     sql = <<-SQL
